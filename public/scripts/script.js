@@ -14,6 +14,7 @@ function createTodo() {
     </span>
   `;
 
+  // ищем именно в item, т.к. иначе будет найдена первая задача в списке
   const taskText = item.querySelector(".task__text");
   taskText.append(taskName.value);
 
