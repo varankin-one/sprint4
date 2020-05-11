@@ -3,7 +3,6 @@ const tasks = document.querySelector(".tasks");
 const saveButton = document.querySelector(".actions__save");
 
 function deleteElement(evt){
-  console.log("remove", evt);
   element.parentElement.remove();
   evt.stopPropagation();
 }
@@ -31,7 +30,7 @@ function createTodo() {
 
   // добавляем событие для удаления элемента
   listenDeleteTodo(item.querySelector(".task__trash"));
-  
+
   // положить в общий список
   tasks.appendChild(item);
 
@@ -40,7 +39,6 @@ function createTodo() {
 }
 
 taskName.addEventListener("keypress", (keyPressed) => {
-  console.log(keyPressed);
   const keyEnter = 13;
   if (keyPressed.which == keyEnter) {
     createTodo();
