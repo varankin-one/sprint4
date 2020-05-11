@@ -1,6 +1,16 @@
 const taskName = document.querySelector(".task-name");
 const tasks = document.querySelector(".tasks");
 
+function deleteElement(evt){
+  console.log("remove", evt);
+  element.parentElement.remove();
+  evt.stopPropagation();
+}
+
+function listenDeleteTodo(element) {
+    element.addEventListener("click", deleteElement);
+  }
+
 function createTodo() {
   // создать элемент для таски
   const item = document.createElement("li");
@@ -18,6 +28,9 @@ function createTodo() {
   const taskText = item.querySelector(".task__text");
   taskText.append(taskName.value);
 
+  // добавляем событие для удаления элемента
+  listenDeleteTodo(item.querySelector(".task__trash"));
+  
   // положить в общий список
   tasks.appendChild(item);
 
@@ -32,3 +45,4 @@ taskName.addEventListener("keypress", (keyPressed) => {
     createTodo();
   }
 });
+
