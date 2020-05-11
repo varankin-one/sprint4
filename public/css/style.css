@@ -1,0 +1,182 @@
+body {
+  min-height: 100%;
+  height: 100%;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.title {
+  text-transform: uppercase;
+  background: #ff8e00;
+  color: white;
+  margin: 0;
+  padding: 10px 28px;
+  font-weight: normal;
+}
+
+.task-name {
+  background: white;
+  width: 100%;
+  box-sizing: border-box;
+  height: 50px;
+  font-size: 20px;
+  font-weight: 0.5px;
+  padding-left: 25px;
+}
+
+.task-name:focus {
+  background: #edf1f5;
+  outline: none;
+  color: #ff8e00;
+}
+
+.button {
+  background-color: #a65c00;
+  border: 2px solid #a65c00;
+  color: white;
+  padding: 8px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  -webkit-transition-duration: 0.4s;
+  /* Safari */
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: white;
+  color: black;
+}
+
+.actions {
+  background: #ff8e00;
+  padding: 10px;
+}
+
+.page {
+  margin: 0 auto;
+  max-width: 400px;
+  height: 100%;
+  background: white;
+  position: relative;
+}
+
+.overlay {
+  height: 0;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.7);
+  overflow-x: hidden;
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+}
+
+.closeTips {
+  position: absolute;
+  top: 15px;
+  right: 40px;
+  font-size: 60px;
+  color: #ff8e00;
+  cursor: pointer;
+}
+
+.tips__item {
+  padding: 8px;
+  list-style-type: circle;
+  font-size: 18px;
+  color: #fff;
+  display: block;
+}
+
+.tasks {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tasks__item {
+  background: #ffc173;
+  height: 50px;
+  line-height: 50px;
+  cursor: pointer;
+  font-size: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.tasks__item:nth-child(2n) {
+  background: #ffaa40;
+}
+
+.task__trash {
+  margin-right: 1px;
+  text-align: center;
+  height: 50px;
+  width: 0;
+  opacity: 0;
+  -webkit-transition: 0.3s;
+  transition: 0.3s linear;
+}
+
+.tasks__item:hover .task__trash {
+  width: 50px;
+  opacity: 1;
+}
+
+.task__text {
+  padding: 0 0 0 8px;
+}
+
+.display {
+  display: none;
+  transition: 0.3s linear;
+}
+
+.checked {
+  color: gray;
+  text-decoration: line-through;
+}
+
+.fa-pencil-alt {
+  float: right;
+  padding-top: 8px;
+}
+
+.fa-trash-alt {
+  color: #a65c00;
+}
+
+.tips {
+  position: relative;
+  top: 20%;
+  width: 100%;
+  text-align: center;
+  margin-top: 25px;
+}
+
+#pencil {
+  padding: 0;
+}
+
+/*  if screen size less than 450px, resize tips lists and close btn so they don't overlap */
+@media screen and (max-height: 450px) {
+  .closeTips {
+    font-size: 20px;
+  }
+
+  .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+  }
+
+  .page {
+    width: 100%;
+    height: 100%;
+  }
+}
