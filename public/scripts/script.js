@@ -1,16 +1,24 @@
 const taskName = document.querySelector(".task-name");
 const tasks = document.querySelector(".tasks");
+
+/* сохранение в браузер */
 const saveButton = document.querySelector(".actions__save");
 
-function deleteElement(evt){
-  element.parentElement.remove();
-  evt.stopPropagation();
+function save() {
+  // сохранение задач в локальное хранилище
+  localStorage.setItem("tasks", tasks.innerHTML);
+}
+saveButton.addEventListener("click", save);
+
+/* удаление задачи из списка */
+function listenDeleteTodo(element) {
+  element.addEventListener("click", function deleteElement(evt) {
+    element.parentElement.remove();
+    evt.stopPropagation();
+  });
 }
 
-function listenDeleteTodo(element) {
-    element.addEventListener("click", deleteElement);
-  }
-
+/* добавление задачи в список */
 function createTodo() {
   // создать элемент для таски
   const item = document.createElement("li");
@@ -38,18 +46,18 @@ function createTodo() {
   taskName.value = "";
 }
 
-taskName.addEventListener("keypress", (keyPressed) => {
+function onEnter(evt) {
   const keyEnter = 13;
-  if (keyPressed.which == keyEnter) {
+  // если нажали Enter
+  if (evt.which == keyEnter) {
+    // добавляем задачу
     createTodo();
   }
-});
+}
+// прослушиваем нажатие клавиши Enter
+taskName.addEventListener("keypress", onEnter);
 
-saveButton.addEventListener("click", () => {
-  // сохранение задач в локальное хранилище
-  localStorage.setItem("tasks", tasks.innerHTML);
-});
-
+/* загрузка задач из хранилища */
 function loadTasks() {
   const data = localStorage.getItem("tasks");
   if (data) {
