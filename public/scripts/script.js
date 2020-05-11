@@ -1,16 +1,16 @@
 const taskName = document.querySelector(".task-name");
 const tasks = document.querySelector(".tasks");
 
-/* сохранение в браузер */
+// находим кнопку по классу .actions__save
 const saveButton = document.querySelector(".actions__save");
 
+// сохранить задачи в локальное хранилище
 function save() {
-  // сохранение задач в локальное хранилище
   localStorage.setItem("tasks", tasks.innerHTML);
 }
 saveButton.addEventListener("click", save);
 
-/* удаление задачи из списка */
+// навесить на элемент удаление по клику
 function listenDeleteTodo(element) {
   element.addEventListener("click", function deleteElement(evt) {
     element.parentElement.remove();
@@ -18,7 +18,7 @@ function listenDeleteTodo(element) {
   });
 }
 
-/* добавление задачи в список */
+// добавление задачи в список
 function createTodo() {
   // создать элемент для таски
   const item = document.createElement("li");
@@ -46,6 +46,7 @@ function createTodo() {
   taskName.value = "";
 }
 
+// функция обработчик нажатия клавиши Enter
 function onEnter(evt) {
   const keyEnter = 13;
   // если нажали Enter
@@ -54,14 +55,20 @@ function onEnter(evt) {
     createTodo();
   }
 }
-// прослушиваем нажатие клавиши Enter
+// на инпут для ввода имени подключаем прослушивание нажатия кнопки
 taskName.addEventListener("keypress", onEnter);
 
-/* загрузка задач из хранилища */
+// загрузить задачи из локального хранилища
 function loadTasks() {
   const data = localStorage.getItem("tasks");
   if (data) {
     tasks.innerHTML = data;
+  }
+
+  // добавить на каждый элемент удаление
+  const deleteButtons = document.querySelectorAll(".task__trash");
+  for (const button of deleteButtons) {
+    listenDeleteTodo(button);
   }
 }
 
