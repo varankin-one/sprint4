@@ -1,5 +1,6 @@
 const taskName = document.querySelector(".task-name");
 const tasks = document.querySelector(".tasks");
+const saveButton = document.querySelector(".actions__save");
 
 function deleteElement(evt){
   console.log("remove", evt);
@@ -46,3 +47,16 @@ taskName.addEventListener("keypress", (keyPressed) => {
   }
 });
 
+saveButton.addEventListener("click", () => {
+  // сохранение задач в локальное хранилище
+  localStorage.setItem("tasks", tasks.innerHTML);
+});
+
+function loadTasks() {
+  const data = localStorage.getItem("tasks");
+  if (data) {
+    tasks.innerHTML = data;
+  }
+}
+
+loadTasks();
