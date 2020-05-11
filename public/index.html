@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>QA-вебинар slateblue</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+      integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Bad+Script"
+    />
+  </head>
+  <body>
+    <div class="page">
+      <h1 class="title">Мой список дел <i id="penсil" class="fas fa-pencil-alt"></i></h1>
+      <input type="text" class="task-name" placeholder="Добавить задачу" />
+
+      <ul class="tasks">
+        <li class="tasks__item task">
+          <span class="task__text">Прочитать вопросы/ответить в ЯП</span>
+          <span class="task__trash"><i class="fas fa-trash-alt"></i></span>
+        </li>
+        <li class="tasks__item task">
+          <span class="task__text">Приготовить ответы к вебинару</span>
+          <span class="task__trash"><i class="fas fa-trash-alt"></i></span>
+        </li>
+        <li class="tasks__item task">
+          <span class="task__text">Разобраться с плагином к студии</span>
+          <span class="task__trash"><i class="fas fa-trash-alt"></i></span>
+        </li>
+        <li class="tasks__item task">
+          <span class="task__text">Обновить модуль на виртуалке</span>
+          <span class="task__trash"><i class="fas fa-trash-alt"></i></span>
+        </li>
+      </ul>
+
+      <div class="actions">
+        <button name="save" class="button actions__save">Save</button>
+        <button name="clear" class="button actions__clear">Clear</button>
+        <button name="help" class="button actions__help">Help</button>
+      </div>
+    </div>
+
+    <div class="overlay">
+      <a href="javascript:void(0)" class="closeTips">&times;</a>
+      <ul class="tips">
+        <li class="tips__item">
+          Чтобы спрятать или показать поле ввода, кликните на карандаш
+        </li>
+        <li class="tips__item">
+          Для добавления списка дел напишите текст в поле ввода и нажмите Ввод
+        </li>
+        <li class="tips__item">
+          Чтобы удалить один пункт, наведите на него и нажмите на значок корзины
+        </li>
+        <li class="tips__item">
+          Чтобы удалить все списки дел, нажмите "Очистить"
+        </li>
+        <li class="tips__item">
+          Нажмите "Сохранить", чтобы сохранить список дел на потом
+        </li>
+      </ul>
+    </div>
+    <script src="./scripts/script.js" defer></script>
+  </body>
+</html>
